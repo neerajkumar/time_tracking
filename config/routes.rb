@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+
+  get 'projects/index'
+
+  get 'projects/new'
+
+  get 'projects/edit'
+
+  get 'projects/create'
+
+  get 'projects/update'
+
+  get 'projects/delete'
+
+  devise_for :employees, controllers: { registrations: "employees/registrations",
+    sessions: "employees/sessions" }
+
+  devise_scope :employee do
+    # root "devise/sessions#new"
+  end
+
+  root to: "projects#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
