@@ -13,13 +13,4 @@
  */
 
 @import "bootstrap";
-@import "mixins";
 
-.navbar-default {
-	background-color: $header-blue;
-	.navbar-brand {
-		position: fixed;
-		color: $white;
-		white-space: nowrap;
-	}
-}

@@ -1,4 +1,7 @@
 class Employees::UnlocksController < Devise::UnlocksController
+
+  layout 'login'
+  
   # GET /resource/unlock/new
   # def new
   #   super

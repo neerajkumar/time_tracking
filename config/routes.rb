@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'projects/index'
-
-  get 'projects/new'
-
-  get 'projects/edit'
-
-  get 'projects/create'
-
-  get 'projects/update'
-
-  get 'projects/delete'
+  resources :projects
 
   devise_for :employees, controllers: { registrations: "employees/registrations",
     sessions: "employees/sessions" }
