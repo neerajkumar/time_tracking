@@ -1,2 +1,15 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+  <div class="col-md-3 col-md-offset-1"><%= link_to "Back", projects_path, class: "btn btn-default" -%></div>
+  <div class="col-md-6 col-md-offset-3">
+	  <h1>Edit Project</h1> 
+	  <div>&nbsp;</div>
+	  <% if @project.errors.full_messages.present? %>
+	    <% @project.errors.full_messages.each do |message| %>
+	      <div class="alert alert-danger" role="alert"><%= message -%></div>
+	    <% end %>
+	  <% end %>
+
+		<%= form_for(@project, as: :project, url: "/projects/#{@project.id}", html: {class: "form-horizontal"}, method: :put) do |f| %>
+  			<%= render partial: "form", locals: {f: f, button_text: "Update Project"} -%>
+		<% end %>
+	</div>
+

@@ -1,20 +1,18 @@
-<h1>Projects</h1>
-<ul>
-  <% @projects.each do |project| %>
-    <li><%= project.name -%></li>
-  <% end %>
-</ul>
-<p>Find me in app/views/projects/index.html.erb</p>
-
-<div class="row">
-	<div class=".col-md-3 .col-md-offset-3 pull-right">
-		<%= link_to "Add Project", new_project_path if current_employee.admin? -%>
-	</div>
-	<div class="col-md-6 col-md-offset-3">
-		<ul>
-			<% @projects.each do |project| %>
-			<li><%= project.name -%></li>
+<div class="col-md-3 col-md-offset-1 pull-right">
+	<%= link_to "Add Project", new_project_path, class: "btn btn-default btn-primary" if current_employee.is_admin? -%>
+</div>
+<div class="col-md-6 col-md-offset-3">
+	<h1>Projects</h1>
+	<div>&nbsp;</div>
+	<div class="row">
+	  	<div class="col-md-9 col-md-offset-2">
+			<% if @projects.present? %>
+	  			<ul class="list-styled">
+	    			<% for project in @projects-%>
+	      				<li><%= link_to project.name, project_path(project) -%></li>
+	    			<% end %>
+	  			</ul>
 			<% end %>
-		</ul>	
+		</div>
 	</div>
 </div>

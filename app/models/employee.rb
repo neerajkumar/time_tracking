@@ -4,8 +4,12 @@ class Employee < ActiveRecord::Base
 
   has_and_belongs_to_many :projects
 
-  def admin?
+  def is_admin?
     self.role == "admin"
+  end
+
+  def fullname
+    self.first_name + " " + self.last_name
   end
   
 end
