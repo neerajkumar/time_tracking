@@ -27,8 +27,11 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'mysql2'
 
+
 group :development do
   gem 'pry-rails'
+  gem 'capistrano-rails'
+  gem 'rvm-capistrano'
 end
 
 gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :branch => 'next'
