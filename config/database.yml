@@ -25,3 +25,4 @@ test:
 production:
   <<: *default
   database: time_tracking_production
+  password: password

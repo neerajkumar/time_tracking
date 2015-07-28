@@ -88,5 +88,7 @@ namespace :deploy do
     run "ln -nfs #{release_path} #{current_path}"
   end
 end
-before "deploy:create_symlink", "deploy:resymlink"
+
+before "deploy:migrations", "deploy:create_symlink"
+
 
