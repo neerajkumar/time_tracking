@@ -1,11 +1,13 @@
 require 'rvm/capistrano'
+require 'bundler/capistrano'
 set :application, "Time Tracker"
 set :repository,  "git@github.com:neerajkumar/time_tracking.git"
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 set :branch , "master"
-set :user, "deploy"
+set :user, "root"
 set :use_sudo, false
+set :rvm_install_with_sudo, true
 set :rails_env, "production"
 set :deploy_via, :copy
 set :deploy_to, "/srv/time_tracker"
@@ -13,9 +15,10 @@ set :keep_releases, 3
 set :domain, "104.131.110.105"
 set :rvm_ruby_string, 'ruby-2.1.5'
 set :rake, 'bundle exec rake'
-set :default_shell, "/bin/bash -l"
+# set :default_shell, "/bin/bash -l"
 set :rvm_type, :root
 default_run_options[:pty] = true
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 server domain, :app, :web, :db, :primary => true
@@ -41,7 +44,6 @@ role :db,  domain
 # end
 
 after "deploy:restart", "deploy:cleanup"
-after "deploy:restart", "deploy:start_juggernaut"
 before "deploy:restart", "deploy:tmp_symlinks"
 before "deploy:restart", "deploy:create_symlink"
 set :deploy_via, :remote_cache
