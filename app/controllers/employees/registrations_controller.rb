@@ -1,23 +1,25 @@
 class Employees::RegistrationsController < Devise::RegistrationsController
 
   layout 'login'
+
+  # before_action :employee_params
   
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
-  #   super
-  # end
+   # super
+  #end
 
   # POST /resource
   # def create
-  #   super
+  #  super
   # end
 
   # GET /resource/edit
   # def edit
-  #   super
+  #  super
   # end
 
   # PUT /resource
@@ -63,10 +65,17 @@ class Employees::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def after_sign_up_path_for(resource)
+  # def after_sign_up_path_for(resource)
     # sends multiple admin emails (no deliver call needed)
     #AdminMailer.new_sign_up(resource) unless Rails.env.test?
-    super
+    #super
+  #end
+
+  private
+
+  def employee_params
+    binding.pry
+    params.require(:employee).permit(:first_name, :last_name, :portal_id, :email)
   end
 
 end

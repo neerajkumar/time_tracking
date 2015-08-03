@@ -45,8 +45,12 @@ class ProjectsController < ApplicationController
   def show
     if current_employee.is_admin?
       @project = Project.find(params[:id])
-      @members = @project.employees
-      @resource = Employee.new
+      @members = @project.employees.uniq
+      @resource = @project.employees.new
+
+      respond_to do |format|
+        format.html {}
+      end
     end
   end
 

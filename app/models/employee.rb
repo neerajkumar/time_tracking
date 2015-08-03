@@ -9,7 +9,7 @@ class Employee < ActiveRecord::Base
   end
 
   def fullname
-    self.first_name + " " + self.last_name
+    self.first_name + " " + self.last_name unless self.new_record?
   end
   
 end
