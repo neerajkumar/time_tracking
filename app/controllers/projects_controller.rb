@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = current_employee.projects.find(params[:id]) if current_employee.is_admin?
+    @project.logged_hour_types.build
   end
 
   def create
@@ -33,7 +34,7 @@ class ProjectsController < ApplicationController
       @project = current_employee.projects.find(params[:id])
 
       respond_to do |format|
-        if @project.update(project_params) && current_employee.projects << @project
+        if @project.update(project_params) 
           format.html { redirect_to projects_path, alert: "Project Successfully Updated"}
         else
           format.html { render action: :new}
@@ -62,6 +63,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, logged_hour_types_attributes: [:id, :name])
   end
 end

@@ -1,5 +1,7 @@
 class Employees::RegistrationsController < Devise::RegistrationsController
 
+  respond_to :html, :json
+  
   layout 'login'
 
   # before_action :employee_params

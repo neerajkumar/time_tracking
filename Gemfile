@@ -26,6 +26,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'mysql2'
+gem 'cocoon'
 
 
 group :development do
