@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803171553) do
+ActiveRecord::Schema.define(version: 20150818122913) do
 
   create_table "employees", force: true do |t|
     t.string   "first_name"
@@ -61,11 +61,15 @@ ActiveRecord::Schema.define(version: 20150803171553) do
 
   create_table "logged_hours", force: true do |t|
     t.integer  "hours"
-    t.datetime "logger_date"
+    t.datetime "logged_from_date"
     t.integer  "employee_id"
-    t.integer  "logged_hour_type"
+    t.integer  "logged_hour_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "logged_to_date"
+    t.boolean  "period",              default: false
+    t.text     "description"
+    t.integer  "project_id"
   end
 
   create_table "projects", force: true do |t|

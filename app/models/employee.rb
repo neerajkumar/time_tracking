@@ -4,6 +4,8 @@ class Employee < ActiveRecord::Base
 
   has_and_belongs_to_many :projects
 
+  has_many :logged_hours, dependent: :destroy
+
   def is_admin?
     self.role == "admin"
   end

@@ -1,0 +1,48 @@
+<div class="form-group">
+  <label class="col-sm-5 control-label">Employee</label>
+  <div class="col-sm-6 padding6">
+    <%= current_employee.fullname %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-5 control-label" for="Period">Period</label>
+  <div class="col-sm-6 padding6 margin-left6">
+    <%= f.check_box :period %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-5 control-label" for="Date">Date</label>
+  <div class="col-sm-2 padding6">
+    <%= f.text_field :logged_from_date, class: "form-control", row: "1" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-5 control-label" for="workedHours">Hours</label>
+  <div class="col-sm-2 padding6">
+    <%= f.text_field :hours, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-5 control-label" for="Description">Description</label>
+  <div class="col-sm-6 padding6">
+    <%= f.text_area :description, class: "form-control", row: "3" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-5 control-label" for="Project">Project</label>
+  <div class="col-sm-6 padding6">
+    <%= f.collection_select :project_id, Project.all, :id, :name, {}, {class: "form-control"} %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-12">
+    <%= f.submit "#{button_text}", class: "pull-right btn btn-default btn-primary" -%>
+  </div>
+</div>
+

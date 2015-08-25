@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
   end
     
   def show
+    @logged_hour = LoggedHour.new
     if current_employee.is_admin?
       @project = Project.find(params[:id])
       @members = @project.employees.uniq

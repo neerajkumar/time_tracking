@@ -9,7 +9,7 @@
 	<div class="row">
 
 		<div class="col-md-6 col-md-offset-1">
-			<%= link_to "Log Work", "#", class: "btn btn-default btn-primary pull-right" -%>
+			<%= link_to "Log Work", "#", class: "btn btn-default btn-primary pull-right", data: {toggle: "modal", target: ".bs-log-work-modal-lg"} -%>
 			<ul>
 				<% for member in @members %>
 				<li>
@@ -38,6 +38,8 @@
 	</div>
 </div>
 
+
+<%= render template: "logged_hours/new" -%>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg">

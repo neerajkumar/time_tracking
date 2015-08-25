@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :logged_hours
+
   resources :projects
 
   devise_for :employees, controllers: { registrations: "employees/registrations",
