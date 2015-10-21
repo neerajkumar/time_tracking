@@ -27,7 +27,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'mysql2'
 gem 'cocoon'
-
+gem 'bootstrap-datetimepicker-rails'
 
 group :development do
   gem 'pry-rails'

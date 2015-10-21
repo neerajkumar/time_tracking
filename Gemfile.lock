@@ -41,6 +41,7 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    bootstrap-datetimepicker-rails (0.0.11)
     builder (3.2.2)
     capistrano (2.15.6)
       highline
@@ -160,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bootstrap-datetimepicker-rails
   bootstrap-sass!
   capistrano-rails
   cocoon
